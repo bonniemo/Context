@@ -1,14 +1,15 @@
 import  { useContext } from 'react'
-import { StudentContext } from './StudentContext';
+import { GlobalContext } from './GlobalStateContext';
+
 
 
 const StudentList = () => {
-    const students = useContext(StudentContext);
+    const students = useContext(GlobalContext);
   return (
     <>
     <h2>Student List</h2>
     <ul>
-        {students.map((student) => (
+        {students.students.map((student) => (
             <li key={student.id}>
                 Name: {student.name}
             </li>

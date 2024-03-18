@@ -1,17 +1,21 @@
-import { StudentContext } from "./Components/StudentContext";
-import StudentList from "./Components/StudentList";
-import { initialStudents } from "./Components/StudentContext";
+
+
+
 import { ProfessorContext, professors } from "./Components/ProfessorContext";
 import ProfessorList from "./Components/ProfessorList";
 import { PetsContext, petsArray } from "./Components/PetContext";
 import PetList from "./Components/PetList";
+import SearchTeacher from "./Components/SearchTeacher";
+import { GlobalContext, persons } from "./Components/GlobalStateContext";
+import StudentList from "./Components/StudentList";
+
 const App = () => {
   return (
     <>
-      <StudentContext.Provider value={initialStudents}>
-          <h1>Student Context demo</h1>
-          <StudentList/>
-      </StudentContext.Provider>
+      <GlobalContext.Provider value={persons}>
+        <h1>Students</h1>
+        <StudentList/>
+      </GlobalContext.Provider>
 
       <ProfessorContext.Provider value={professors}>
         <h2>Professors</h2>
@@ -22,6 +26,8 @@ const App = () => {
         <h2>Pets</h2>
         <PetList/>
         </PetsContext.Provider>
+
+        <SearchTeacher/>
     </>
   );
 };
